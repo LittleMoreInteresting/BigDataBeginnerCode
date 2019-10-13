@@ -10,6 +10,7 @@ public class FirstClass {
         String forwardSlash = "/";
         String verticalLine = "|";
         String underLine = "_";
+        String wavyLine = "~";
         String blankSpace = " ";
        for(int i = 0; i<level+level; i++){
             if(i<level){
@@ -18,7 +19,7 @@ public class FirstClass {
                 }
                 System.out.print(forwardSlash);
                 for (int j=0; j<i+i; j++){
-                    System.out.print(blankSpace);
+                    System.out.print(wavyLine);
                 }
                 System.out.print(backslash);
                 for (int j=0; j<level-i; j++){
