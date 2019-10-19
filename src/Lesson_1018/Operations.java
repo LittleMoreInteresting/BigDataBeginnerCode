@@ -9,8 +9,8 @@ public class Operations {
     public static void main(String[] args) {
         Operations  operations  = new Operations();
 
-        /*System.out.println(operations.minutesToHours(150));
-        System.out.println(operations.getBiggerOne(998,101));*/
+        System.out.println(operations.minutesToHours(150));
+        System.out.println(operations.getBiggerOne(998,101));
         System.out.println("最大圆的面积："+operations.getBiggerArea());
     }
 
