@@ -5,52 +5,28 @@ import java.math.BigInteger;
 public class Functions {
 
     public static void main(String[] args) {
-        BigInteger big = new BigInteger("1111111111111111111111111111111111111111");
-        System.out.println(big);
-        getFactorial(30);
+        System.out.println("1000! = "+getFactorial(1000));
     }
 
     /**
-     * 编写一个方法，求整数n的阶乘，例如5的阶乘是1*2*3*4*5;    6的阶乘是1*2*3*4*5*6;调用该方法算出1000的阶乘的值并打印.
+     * 编写一个方法，求整数n的阶乘，例如5的阶乘是1*2*3*4*5;
+     * 6的阶乘是1*2*3*4*5*6;调用该方法算出1000的阶乘的值并打印.
      */
-    public static  int getFactorial(int n ){
-        int result = 1;
-        for(int i=1;i<=n;i++){
-            result *= i;
+    public static BigInteger getFactorial(int n ){
+        BigInteger result = new BigInteger("1");
+        for(int i=2;i<=n;i++){
+            String i2Str = String.valueOf(i);
+            BigInteger i2Big = new BigInteger(i2Str);
+            result = result.multiply(i2Big);
         }
-        System.out.println(result);
         return result;
     }
 
     /**
-     * function multiply1(string $a, string $b): string {
-     *   $a = array_reverse(str_split(ltrim($a, '0')));
-     *   $b = array_reverse(str_split(ltrim($b, '0')));
-     *   $r = [];
-     *
-     *   foreach ($a as $ai => $av) {
-     *     foreach ($b as $bi => $bv) {
-     *       $m = $av * $bv;
-     *       $r[$ai + $bi] += $m;
-     *       if ($r[$ai + $bi] >= 10) {
-     *         $r[$ai + $bi + 1] += floor($r[$ai + $bi] / 10);
-     *         $r[$ai + $bi] = $r[$ai + $bi] % 10;
-     *       }
-     *     }
-     *   }
-     *
-     *   return implode('', array_reverse($r));
-     * }
+     * 编写一个可以求得两个数中较大值的方法.    然后通过调用该方法求得三个数中的较大值.
      */
 
     /**
-     * 1、编写一个方法，求整数n的阶乘，例如5的阶乘是1*2*3*4*5;    6的阶乘是1*2*3*4*5*6;调用该方法算出1000的阶乘的值并打印.
-     *
-     * 请作答：
-     *
-     * （问答题）第2题：
-     * 编写一个可以求得两个数中较大值的方法.    然后通过调用该方法求得三个数中的较大值.
-     *
      * 请作答：
      *
      * （问答题）第3题：
