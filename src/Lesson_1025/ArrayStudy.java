@@ -16,11 +16,24 @@ public class ArrayStudy {
      */
     public static void countRabbit(){
         int months = 20;
-        int[][] rabbits = new int[20][10000];
-        rabbits[0][0] = 1;
-        int rabbitThree = 0;
+        int[] rabbits = new int[21];
+        rabbits[0] = 1;
+        for(int m = 1; m<=months; m++){
 
-
+            for (int j=m ; j>0 ; j--){
+                rabbits[j] = rabbits[j-1];
+                if(j>=3){
+                    rabbits[0] += rabbits[j];
+                }
+                rabbits[j-1] = 0;
+            }
+            System.out.println(Arrays.toString(rabbits));
+        }
+        int count = 0;
+        for (int num:rabbits) {
+            count += num;
+        }
+        System.out.println(months+"个月后有"+count+"只；");
     }
 
 
