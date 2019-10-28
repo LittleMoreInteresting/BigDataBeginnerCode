@@ -19,13 +19,12 @@ public class ArrayStudy {
         int[] rabbits = new int[21];
         rabbits[0] = 1;
         for(int m = 1; m<=months; m++){
-
             for (int j=m ; j>0 ; j--){
                 rabbits[j] = rabbits[j-1];
-                if(j>=3){
-                    rabbits[0] += rabbits[j];
-                }
                 rabbits[j-1] = 0;
+            }
+            for (int j=m ; j>=3 ; j--){
+                rabbits[0] += rabbits[j];
             }
             System.out.println(Arrays.toString(rabbits));
         }
