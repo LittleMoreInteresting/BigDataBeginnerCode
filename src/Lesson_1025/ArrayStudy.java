@@ -9,6 +9,16 @@ import java.util.Arrays;
  */
 public class ArrayStudy {
     public static void main(String[] args) {
+
+        int n =20;
+        int[] sum = new int[n + 1];
+        sum[1] = 1;
+        sum[2] = 1;
+        for (int i = 3; i <= n; i++) {
+            sum[i] = sum[i - 1] + sum[i - 2];
+        }
+        System.out.println(Arrays.toString(sum));
+        System.out.println(sum[n]);
         countRabbit();
     }
     /**
@@ -22,11 +32,16 @@ public class ArrayStudy {
             for (int j=m ; j>0 ; j--){
                 rabbits[j] = rabbits[j-1];
                 rabbits[j-1] = 0;
-            }
-            for (int j=m ; j>=3 ; j--){
-                rabbits[0] += rabbits[j];
+                if(j>=3){
+                    rabbits[0] += rabbits[j];
+                }
             }
             System.out.println(Arrays.toString(rabbits));
+            int count = 0;
+            for (int num:rabbits) {
+                count += num;
+            }
+            System.out.println(m+"个月后有"+count+"只；");
         }
         int count = 0;
         for (int num:rabbits) {
