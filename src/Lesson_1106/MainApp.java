@@ -25,12 +25,7 @@ public class MainApp {
 
     public static void checkAccount2(String account){
         int firstChar = account.charAt(0);
-        int charLowerA = 'a';
-        int charLowerZ = 'z';
-        int charUpperA = 'A';
-        int charUpperZ = 'Z';
-        int numberZero = '0';
-        int numberNine = '9';
+        int charLowerA = 'a',charLowerZ = 'z',charUpperA = 'A',charUpperZ = 'Z',numberZero = '0',numberNine = '9';
         boolean isMatch = true;
         int len = account.length();
         if(len==12){
@@ -39,6 +34,7 @@ public class MainApp {
                     int nextChar = account.charAt(i);
                     if(nextChar<numberZero || nextChar>numberNine){
                         isMatch = false;
+                        break;
                     }
                 }
             }else{

@@ -22,7 +22,7 @@ public class StringDeal {
             }else{
                 // 字符转小写
                 int charCode = strInput.charAt(i);
-                char current = (char)(charCode<97?charCode+32:charCode);
+                char current = (char)((charCode<='Z'&&charCode>='A') ?charCode+32:charCode);
                 charArr[i] = current;
             }
         }
