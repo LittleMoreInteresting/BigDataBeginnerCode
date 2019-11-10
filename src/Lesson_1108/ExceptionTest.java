@@ -2,7 +2,7 @@ package Lesson_1108;
 
 public class ExceptionTest {
     public static void main(String[] args) {
-        test("aaa9","0");
+        test("9","0");
     }
 
     public static void test(String a,String b){
