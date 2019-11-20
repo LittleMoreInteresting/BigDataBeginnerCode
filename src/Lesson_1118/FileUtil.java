@@ -1,6 +1,7 @@
 package Lesson_1118;
 
 import java.io.*;
+import java.util.Date;
 
 public class FileUtil {
     public static void copyFile(String src, String dest){
@@ -15,6 +16,12 @@ public class FileUtil {
         if(destFile.isDirectory()){
             destFile = new File(destFile,fileName);
         }
+        if(destFile.exists()){
+            int index = destFile.getPath().lastIndexOf(File.separatorChar);
+            String pathDir = destFile.getPath().substring(0,index+1);
+            String newName = "Copy"+System.currentTimeMillis()+'_'+destFile.getPath().substring(index+1);
+            destFile = new File(pathDir+newName);
+        }
         try {
             fis = new FileInputStream(srcFile);
             fos = new FileOutputStream(destFile);
@@ -23,6 +30,8 @@ public class FileUtil {
             while(-1!=(len=fis.read(bs))){
                 fos.write(bs,0,len);
             }
+            fis.close();
+            fos.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
