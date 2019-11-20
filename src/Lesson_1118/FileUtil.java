@@ -13,10 +13,10 @@ public class FileUtil {
         FileOutputStream fos = null;
         String fileName = srcFile.getName();
         File destFile = new File(dest);
-        if(destFile.isDirectory()){
+        if(destFile.isDirectory()){//未指定目前文件名
             destFile = new File(destFile,fileName);
         }
-        if(destFile.exists()){
+        if(destFile.exists()){//目标文件名已存在
             int index = destFile.getPath().lastIndexOf(File.separatorChar);
             String pathDir = destFile.getPath().substring(0,index+1);
             String newName = "Copy"+System.currentTimeMillis()+'_'+destFile.getPath().substring(index+1);
