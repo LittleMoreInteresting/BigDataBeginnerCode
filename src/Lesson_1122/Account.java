@@ -1,5 +1,7 @@
 package Lesson_1122;
-
+/**
+ * 账户
+ */
 public class Account {
     private double totalMoney = 0;
     private int accountCode = 0;
@@ -17,8 +19,8 @@ public class Account {
         return totalMoney;
     }
 
-    public synchronized void addAndSubtract(double cgMoney) {
-        this.totalMoney += cgMoney;
+    public synchronized void  CutMoney(double cgMoney) {
+        this.totalMoney -= cgMoney;
     }
 
     @Override

@@ -2,6 +2,9 @@ package Lesson_1122;
 
 import java.util.*;
 
+/**
+ * 账户管理类
+ */
 public class Bank {
     private static HashMap<Integer,Account> accountList = new HashMap<>();
     private static ArrayList<Integer> accountCode = new ArrayList<>();
