@@ -29,6 +29,9 @@ public class JdbcStudy {
             int i = sta.executeUpdate(sql);
             System.out.println(i);
             System.out.println("createTable");
+            sta.close();
+            close(con);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -48,6 +51,8 @@ public class JdbcStudy {
             staIn.setInt(2,19);
             staIn.setString(3,"15110183744");
             staIn.executeUpdate();
+            staIn.close();
+            close(con);
         } catch (SQLException e) {
             e.printStackTrace();
         }
