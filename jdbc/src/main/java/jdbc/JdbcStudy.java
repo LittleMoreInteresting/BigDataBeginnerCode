@@ -7,10 +7,12 @@ import java.util.Properties;
 
 public class JdbcStudy {
     public static void main(String[] args) {
-       createTable();
-       insert();
-
-        //3. 创建Statement对象,用于执行sql语句
+       //createTable();
+        insert();
+        select();
+        update();
+        select();
+        //delete();
     }
 
     public static void createTable(){
@@ -53,6 +55,52 @@ public class JdbcStudy {
             staIn.executeUpdate();
             staIn.close();
             close(con);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void select(){
+        Connection con=null;
+        Statement  stu =null;
+        try{
+            con = open();
+            stu = con.createStatement();
+            ResultSet rs = stu.executeQuery("select * from student where id=2");
+            while(rs.next()){
+                System.out.println(rs.getString("name")+" 手机号码："+rs.getString("phone"));
+            }
+            close(con);
+            stu.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void update(){
+        Connection con=null;
+        PreparedStatement  ptmt =null;
+        try{
+            con = open();
+            ptmt = con.prepareStatement("update student set phone=? where id=?");
+            ptmt.setString(1,"15701200120");
+            ptmt.setInt(2,2);
+            ptmt.execute();
+            close(con);
+            ptmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void delete(){
+        Connection conn = open();
+        String sql = "delete from student where id=?";
+        PreparedStatement ptmt = null;
+        try {
+            ptmt = conn.prepareStatement(sql);
+            ptmt.setInt(1, 2);
+            System.out.println(ptmt.execute());
         } catch (SQLException e) {
             e.printStackTrace();
         }
