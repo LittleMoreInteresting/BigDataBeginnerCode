@@ -8,11 +8,12 @@ import java.util.Properties;
 public class JdbcStudy {
     public static void main(String[] args) {
        //createTable();
-        insert();
-        select();
-        update();
-        select();
+        //insert();
+        //select();
+        //update();
+        //select();
         //delete();
+
     }
 
     public static void createTable(){
