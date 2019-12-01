@@ -45,6 +45,22 @@ public class DbUtil {
         return conn;
     }
 
+    public static ResultSet querySql(String sql, Object... params){
+        //ArrayList<T> result = new ArrayList<T>();
+        PreparedStatement psm = null;
+        ResultSet rs = null;
+        try {
+            psm = conn.prepareStatement(sql);
+            for (int i = 0; i<params.length; i++){
+                psm.setObject(i+1,params[i]);
+            }
+            rs = psm.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return  rs;
+    }
+
     public static <T> List<T> queryList(Class<T> c,String sql,Object... params){
         ArrayList<T> result = new ArrayList<T>();
         PreparedStatement psm = null;
@@ -78,4 +94,21 @@ public class DbUtil {
         }
         return  result;
     }
+
+    public static Integer update(String sql,Object... params){
+        PreparedStatement psm = null;
+        int rs = 0;
+        try {
+            psm = conn.prepareStatement(sql);
+            for (int i = 0; i<params.length; i++){
+                psm.setObject(i+1,params[i]);
+            }
+            rs = psm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return  rs;
+    }
+
+
 }
