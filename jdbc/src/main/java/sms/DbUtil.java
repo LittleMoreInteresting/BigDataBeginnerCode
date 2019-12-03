@@ -91,6 +91,21 @@ public class DbUtil {
             e.printStackTrace();
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
+        }finally {
+            if (psm!=null){
+                try {
+                    psm.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (conn!=null){
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return  result;
     }
@@ -106,9 +121,25 @@ public class DbUtil {
             rs = psm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            if (psm!=null){
+                try {
+                    psm.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (conn!=null){
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return  rs;
     }
+
 
 
 }
