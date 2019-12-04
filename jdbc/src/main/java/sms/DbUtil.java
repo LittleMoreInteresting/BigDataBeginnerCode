@@ -99,13 +99,6 @@ public class DbUtil {
                     e.printStackTrace();
                 }
             }
-            if (conn!=null){
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
         }
         return  result;
     }
@@ -125,13 +118,6 @@ public class DbUtil {
             if (psm!=null){
                 try {
                     psm.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (conn!=null){
-                try {
-                    conn.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
