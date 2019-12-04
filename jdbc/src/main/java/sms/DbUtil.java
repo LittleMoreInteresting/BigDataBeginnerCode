@@ -126,6 +126,14 @@ public class DbUtil {
         return  rs;
     }
 
-
+    public static void close(){
+        if(conn!=null){
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 }
