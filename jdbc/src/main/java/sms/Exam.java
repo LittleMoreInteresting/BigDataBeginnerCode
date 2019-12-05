@@ -19,7 +19,7 @@ public class Exam {
             String line = scanner.nextLine();
             if(line.equals("")){
                 goon = false;
-                System.out.println("您已开始Stupid考试,请认真作答");
+                beginExam();
             }else if (line.toUpperCase().equals("Q")){
                 goon = false;
                 System.out.println("您已退出考试系统");
@@ -28,9 +28,20 @@ public class Exam {
                 goon = true;
             }
         }while (goon);
+        DbUtil.close();
+    }
 
-
-
+    private static void beginExam(){
+        System.out.println("您已开始Stupid考试,请认真作答,**中途不可退出考试否则考试无效**！");
+        List<Integer> ids = ItemsDao.getIds();
+        System.out.println(ids);
+        for (Integer id:ids) {
+            ItemsDao.getItems(id);
+            String ans = Instructions.getAnswersInstruction();
+            AnswersDao.update(id,ans);
+        }
+        int score = AnswersDao.getScore();
+        System.out.println("您的最终得分："+score);
     }
 
     private static void banner(){
