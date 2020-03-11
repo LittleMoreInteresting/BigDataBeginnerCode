@@ -48,6 +48,7 @@ public class ArrayCompress {
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(smallArr);
         oos.close();
+
         System.out.println("-------------读取文件·  -----------------");
         FileInputStream fis = new FileInputStream("small.var");
         ObjectInputStream ois = new ObjectInputStream(fis);
