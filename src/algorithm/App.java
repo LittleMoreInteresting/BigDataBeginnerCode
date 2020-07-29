@@ -2,7 +2,7 @@ package algorithm;
 
 public class App {
     public static void main(String[] args) {
-        HeroNode hero1 = new HeroNode(1,"A","a");
+        /*HeroNode hero1 = new HeroNode(1,"A","a");
         HeroNode hero2 = new HeroNode(2,"B","b");
         HeroNode hero3 = new HeroNode(3,"C","c");
         HeroNode hero4 = new HeroNode(4,"D","d");
@@ -18,7 +18,11 @@ public class App {
         list.list();
 
         list.delete(2);
-        list.list();
+        list.list();*/
+
+        LinkedSignalList signalList = new LinkedSignalList();
+        signalList.addBaby(10);
+        signalList.show();
 
     }
 }
