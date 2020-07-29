@@ -51,6 +51,14 @@ class LinkedSignalList {
         }
     }
 
+    public void countBaby(int start,int step,int total){
+        if (first==null|| start<1 || start>total){
+            System.out.println("Error Number !");
+            return;
+        }
+
+    }
+
 
 }
 
