@@ -2,7 +2,11 @@ package algorithm;
 
 public class Josepfu {
     public static void main(String[] args) {
-
+        LinkedSignalList signalList = new LinkedSignalList();
+        signalList.addBaby(5);
+        signalList.show();
+        signalList.countBaby(1,2,5);
+        signalList.show();
     }
 }
 
@@ -51,12 +55,41 @@ class LinkedSignalList {
         }
     }
 
+    /**
+     * 出圈
+     * @param start 报数开始位置
+     * @param step 报数长度
+     * @param total 总人数
+     */
     public void countBaby(int start,int step,int total){
         if (first==null|| start<1 || start>total){
             System.out.println("Error Number !");
             return;
         }
-
+        BabyNode helper = first;
+        while (true){
+            if (helper.getNext()==first){
+                break;
+            }
+            helper = helper.getNext();
+        }
+        for(int i=0;i<start-1;i++){
+            first = first.getNext();
+            helper = helper.getNext();
+        }
+        while (true){
+            if (helper==first){
+                break;
+            }
+            for (int i=0;i<step-1;i++){
+                first = first.getNext();
+                helper = helper.getNext();
+            }
+            System.out.println("Baby Out："+first.getNum());
+            first = first.getNext();
+            helper.setNext(first);
+        }
+        System.out.println("Baby ："+first.getNum());
     }
 
 

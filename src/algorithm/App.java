@@ -13,16 +13,16 @@ public class App {
         list.add(hero4);
         list.list();
 
-        HeroNode hero33 = new HeroNode(3,"C_#","c1");
+        *//*HeroNode hero33 = new HeroNode(3,"C_#","c1");
         list.update(hero33);
-        list.list();
+        list.list();*//*
 
-        list.delete(2);
+        list.delete(1);
         list.list();*/
 
-        LinkedSignalList signalList = new LinkedSignalList();
+        /*LinkedSignalList signalList = new LinkedSignalList();
         signalList.addBaby(10);
-        signalList.show();
+        signalList.show();*/
 
     }
 }
