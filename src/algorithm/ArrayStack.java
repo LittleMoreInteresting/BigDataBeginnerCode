@@ -25,12 +25,14 @@ public class ArrayStack {
             System.out.println("Stack is Full");
             return;
         }
-        stack[top+1] = value;
+        stack[++top] = value;
     }
 
     public void pop(){
         if (isEmpty()){
             System.out.println("empty");
+            return ;
         }
+        System.out.println(stack[top--]);
     }
 }

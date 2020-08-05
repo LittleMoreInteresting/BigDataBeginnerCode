@@ -1,5 +1,7 @@
 package algorithm;
 
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
         /*HeroNode hero1 = new HeroNode(1,"A","a");
@@ -23,6 +25,30 @@ public class App {
         /*LinkedSignalList signalList = new LinkedSignalList();
         signalList.addBaby(10);
         signalList.show();*/
+        boolean goon = true;
+        ArrayStack arrayStack = new ArrayStack(5);
+        while (goon){
+            System.out.println("1:push");
+            System.out.println("2:pop");
+            System.out.println("3:quit");
+            Scanner scanner = new Scanner(System.in);
+            int action = scanner.nextInt();
+            switch (action){
+                case 1:
+                    int i = scanner.nextInt();
+                    arrayStack.push(i);
+                    break;
+                case 2:
+                    arrayStack.pop();
+                    break;
+                case 3:
+                    goon = false;
+                    System.out.println("quit");
+                    break;
+                default:
+                    System.out.println("error");
+            }
+        }
 
     }
 }
